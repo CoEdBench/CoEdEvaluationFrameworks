@@ -1,0 +1,67 @@
+{
+  "id": null,
+  "description": null,
+  "project_id": "fim_eval",
+  "trajectory_id": "act_cdc22da7f0b2_00000",
+  "agent": {
+    "completion_model": {
+      "model": "openai/deepseek-ai/DeepSeek-V4-Flash",
+      "temperature": 0.0,
+      "max_tokens": 2000,
+      "timeout": 120.0,
+      "model_base_url": "https://api.siliconflow.cn/v1",
+      "model_api_key": "sk-scotswgcfwhqmbbtwoehzkvvuecmgghjmrnbficglhjrcbvu",
+      "message_cache": true,
+      "thoughts_in_action": false,
+      "disable_thoughts": false,
+      "few_shot_examples": false,
+      "headers": {},
+      "params": {},
+      "merge_same_role_messages": false,
+      "completion_model_class": "moatless.completion.tool_call.ToolCallCompletionModel"
+    },
+    "system_prompt": "You are an autonomous AI assistant with superior programming skills. You are working autonomously and cannot communicate with the user — rely solely on the information you can obtain from the available tools.\n\n# Chain-of-Thought Reasoning\n- Before starting any work — and whenever you encounter complex reasoning or decision points — use the **Think** tool to log your chain-of-thought.\n- Always call Think by passing your reasoning as a plain string.\n- Think at the very beginning of the task, and again whenever you need to plan the next step or resolve ambiguity.\n- The chain-of-thought is internal; do not expose it in your final output.\n\n# Workflow\n\n1. **Understand the Task**\n   - Read the task description carefully.\n   - Identify which file(s) and line range(s) need to be changed.\n   - Determine what additional context is required (dependencies, callers, tests).\n\n2. **Locate Code**\n   Use the following tools to find relevant code:\n   - **ViewCode** — read a specific file or line range (preferred first step).\n   - **ReadFile** — read an entire file when full context is needed.\n\n3. **Modify Code**\n   Apply changes with:\n   - **StringReplace** — replace an exact text string in a file with new content.\n\n4. **Iterate as Needed**\n   - Repeat steps 2–3 until all required changes are complete.\n   - Stop as soon as you have enough information — do not exhaust the budget unnecessarily.\n\n5. **Complete the Task**\n   - Call **Finish** immediately after your last StringReplace.\n   - Explain why the task is complete.\n\n# Important Guidelines\n\n- **Focus on the specific task** — implement only what is required; do not modify unrelated code.\n- **Never guess** — do not assume line numbers or code content; always read the file to verify before editing.\n- **State management** — keep track of files you have already read and changes you have already applied; do not re-fetch the same data or repeat previous steps.\n- **Call Finish last** — do not make any exploration calls after your final StringReplace.\n- **When in doubt** — read the target file first before searching elsewhere.",
+    "actions": [
+      {
+        "is_terminal": false,
+        "hidden": false,
+        "max_lines": 200,
+        "action_class": "moatless.actions.read_file.ReadFile"
+      },
+      {
+        "max_identify_tokens": 8000,
+        "max_identify_prompt_tokens": 16000,
+        "is_terminal": false,
+        "hidden": false,
+        "max_tokens": 3000,
+        "show_code_blocks": false,
+        "action_class": "moatless.actions.view_code.ViewCode"
+      },
+      {
+        "is_terminal": false,
+        "hidden": false,
+        "auto_correct_indentation": true,
+        "action_class": "moatless.actions.string_replace.StringReplace"
+      },
+      {
+        "is_terminal": false,
+        "hidden": false,
+        "action_class": "moatless.actions.finish.Finish"
+      }
+    ],
+    "memory": {
+      "max_tokens": 16000,
+      "max_tokens_per_observation": 2000,
+      "include_file_context": true,
+      "include_git_patch": true,
+      "thoughts_in_action": false,
+      "memory_class": "moatless.message_history.message_history.MessageHistoryGenerator"
+    },
+    "shadow_mode": false,
+    "agent_class": "moatless.agent.agent.ActionAgent"
+  },
+  "metadata": {},
+  "max_iterations": 9,
+  "max_cost": null,
+  "flow_class": "moatless.flow.loop.AgenticLoop"
+}

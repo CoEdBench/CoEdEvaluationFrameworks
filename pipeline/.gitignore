@@ -1,0 +1,30 @@
+# Cache
+.cache/
+.cache*/
+.claude/
+# Environment
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+
+# Logs
+# *.log
+# llm_logs/
+#eval_results/
+#results/
+
+# Results (uncomment as needed)
+# results/
+# eval_output/
+
+# IDE
+.idea/
+.vscode/
+*.swp

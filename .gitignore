@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+.egg
+dist/
+build/
+.venv/
+venv/
+env/
+
+# Environment
+.env
+.env*
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Cache
+.cache/
+.claude/
+.mypy_cache/
+.pytest_cache/
+.ipynb_checkpoints
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Results (uncomment selectively)
+# results/
+# eval_output/
+# eval_results/

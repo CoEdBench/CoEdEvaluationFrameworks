@@ -1,0 +1,19 @@
+{
+  "total": 1,
+  "success": 1,
+  "failed": 0,
+  "success_rate": 1.0,
+  "model_name": "openai/deepseek-ai/DeepSeek-V4-Flash",
+  "finish_reason_dist": {
+    "terminal": 0,
+    "forced_terminal": 1,
+    "failed": 0
+  },
+  "total_prompt_tokens": 78272,
+  "total_completion_tokens": 4298,
+  "total_tokens": 82570,
+  "total_reasoning_tokens": 0,
+  "total_cache_read_tokens": 0,
+  "avg_tokens_per_task": 82570.0,
+  "total_cost_usd": 0.0
+}

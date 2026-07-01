@@ -1,0 +1,14 @@
+{
+  "claude-opus-4-7": {"prompt": 0.005, "completion": 0.025, "cache_read": 0.0005},
+  "claude-sonnet-4-6": {"prompt": 0.003, "completion": 0.015, "cache_read": 0.0003},
+  "deepseek-v4-pro": {"prompt": 0.000417, "completion": 0.000833, "cache_read": 0.0000035},
+  "deepseek-v4-flash": {"prompt": 0.000139, "completion": 0.000278, "cache_read": 0.0000028},
+  "gpt-5.3-codex": {"prompt": 0.00175, "completion": 0.014, "cache_read": 0.000175},
+  "qwen2.5-32B-instruct": {"prompt": 0.000486, "completion": 0.000972},
+  "kimi-k2.6": {"prompt": 0.00095, "completion": 0.004},
+  "minimax-m2.7": {"prompt": 0.0003, "completion": 0.0012},
+  "glm-5.1": {"prompt": 0.0014, "completion": 0.0044},
+  "qwen3.6-max-preview": {"prompt": 0.0013, "completion": 0.0078},
+  "qwen3.6-plus-2026-04-02": {"prompt": 0.0005, "completion": 0.003},
+  "doubao-seed-2.0-code": {"prompt": 0.00047, "completion": 0.00235}
+}
