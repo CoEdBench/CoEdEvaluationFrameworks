@@ -9,20 +9,14 @@
 
 ## Overview
 
-Code change propagation is the task of determining what other locations in a codebase need to be updated when a given code change (a *root hunk*) is applied. This repository provides two complementary frameworks for this task:
+Code change propagation is the task of determining what other locations in a codebase need to be updated when a given code change (a *root hunk*) is applied. This repository provides two approaches for this task:
 
 | Module | Description |
 |---|---|
-| **[Pipeline](./pipeline/)** | Data pipeline for mining commits, filtering relevant changes, and constructing benchmarks |
-| **[Agent](./agent/)** | Agent-based FIM (Fill-in-Middle) completion system built on [moatless-tools](https://github.com/aorwall/moatless-tools) that explores a repository and generates coordinated edits |
+| **[Pipeline](./pipeline/)** | Two-stage LLM pipeline: identifies impacted locations, then generates coordinated edits. Supports oracle context (ground-truth targets) and auto mode (dependency graph). |
+| **[Agent](./agent/)** | Agent-based FIM (Fill-in-Middle) system built on [moatless-tools](https://github.com/aorwall/moatless-tools) that explores the repository and generates edits autonomously. |
 
-### How They Fit Together
-
-The **Pipeline** processes commits and constructs datasets. The **Agent** consumes those datasets to perform the actual change propagation in an automated, agent-driven manner — exploring the codebase, identifying impacted locations, and generating the necessary edits.
-
-```
-Commits → [Pipeline] → Dataset → [Agent] → Predicted edits
-```
+Both approaches share the same dataset format and can be evaluated with the same benchmarks.
 
 ---
 
@@ -30,7 +24,7 @@ Commits → [Pipeline] → Dataset → [Agent] → Predicted edits
 
 ```
 CoEdEvaluationFrameworks/
-├── pipeline/              Data mining, filtering, and benchmark construction
+├── pipeline/              Two-stage LLM change propagation prediction pipeline
 │   ├── main.py           Pipeline entry point
 │   ├── train_make_main.py  Training dataset construction
 │   ├── src/              Core pipeline logic
